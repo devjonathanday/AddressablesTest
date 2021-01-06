@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: bbb2432aa885a1b4d8fc8bb63bcb1e8f
+  m_SerializeEntries:
+  - m_GUID: 28a99c46c6334d940b4d31c9b2730513
+    m_Address: Cube
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    m_MainAsset: {fileID: 161962332136781791, guid: 28a99c46c6334d940b4d31c9b2730513,
+      type: 3}
+    m_TargetAsset: {fileID: 161962332136781791, guid: 28a99c46c6334d940b4d31c9b2730513,
+      type: 3}
+  - m_GUID: 7179a2df5c8fa634a82e656affd42785
+    m_Address: Cylinder
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    m_MainAsset: {fileID: 249491178267254937, guid: 7179a2df5c8fa634a82e656affd42785,
+      type: 3}
+    m_TargetAsset: {fileID: 249491178267254937, guid: 7179a2df5c8fa634a82e656affd42785,
+      type: 3}
+  - m_GUID: 8e35990f9ac3f5f429797f9719d7ab2a
+    m_Address: Capsule
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    m_MainAsset: {fileID: 3280118865032343998, guid: 8e35990f9ac3f5f429797f9719d7ab2a,
+      type: 3}
+    m_TargetAsset: {fileID: 3280118865032343998, guid: 8e35990f9ac3f5f429797f9719d7ab2a,
+      type: 3}
+  - m_GUID: cf3a037979113254ba88553d06a65fb2
+    m_Address: Sphere
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 6a3dd996681475c48bd4cf0091910d51, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 9c216b863ff6655438464c675ce5dcc2, type: 2}
+    - {fileID: 11400000, guid: 2cd122bc03c6f8e42a8153bef4d02e20, type: 2}
