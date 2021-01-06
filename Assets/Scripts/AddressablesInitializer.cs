@@ -10,62 +10,50 @@ using TMPro;
 public class AddressablesInitializer : MonoBehaviour
 {
     public static AddressablesInitializer instance;
-    public TextMeshProUGUI sizeText;
+    public TextMeshProUGUI statusText;
     public List<string> assetKeys;
-    public TextMeshProUGUI errorLog;
 
     private void Awake()
     {
         instance = this;
     }
+    
+    //Initialization
 
     public void InitializeAddressables()
     {
-        try
-        {
-
-            var handle = Addressables.InitializeAsync();
-            handle.Completed += CalculateDownloadSize;
-        }
-        catch (Exception e)
-        {
-            errorLog.text += "\n" + e;
-        }
+        var handle = Addressables.InitializeAsync();
+        handle.Completed += LogInitializeSuccess;
     }
 
-    private void CalculateDownloadSize(AsyncOperationHandle<IResourceLocator> obj)
+    private void LogInitializeSuccess(AsyncOperationHandle<IResourceLocator> obj)
     {
-        try
-        {
-            var handle = Addressables.GetDownloadSizeAsync(assetKeys.ToArray());
-            handle.Completed += OnCalcSizeCompleted;
-        }
-        catch (Exception e)
-        {
-            errorLog.text += "\n" + e;
-        }
+        statusText.text = "Initialized!";
+    }
+    
+    //Calculate download size
+
+    public void CalculateDownloadSize()
+    {
+        var handle = Addressables.GetDownloadSizeAsync(assetKeys.ToArray());
+        handle.Completed += OnCalcSizeCompleted;
     }
 
-    public void OnCalcSizeCompleted(AsyncOperationHandle<long> size)
+    private void OnCalcSizeCompleted(AsyncOperationHandle<long> size)
     {
-        sizeText.text = $"Asset Download Size: {size.Result} bytes";
+        statusText.text = $"Asset Download Size: {size.Result} bytes";
     }
+    
+    //Asset downloading
 
     public void DownloadAssets()
     {
-        try
-        {
-            var handle = Addressables.DownloadDependenciesAsync(assetKeys.ToArray(), Addressables.MergeMode.None, true);
-            handle.Completed += LogCompletion;
-        }
-        catch (Exception e)
-        {
-            errorLog.text += "\n" + e;
-        }
+        var handle = Addressables.DownloadDependenciesAsync(assetKeys.ToArray(), Addressables.MergeMode.None, true);
+        handle.Completed += LogCompletion;
     }
 
     private void LogCompletion(AsyncOperationHandle obj)
     {
-        sizeText.text = "Finished Downloading Assets!";
+        statusText.text = "Finished Downloading Assets!";
     }
 }

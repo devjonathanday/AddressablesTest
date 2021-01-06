@@ -9,13 +9,14 @@ public class GenerateObject : MonoBehaviour
 {
     public TMP_InputField inputField;
 
-    public int position;
+    public int position = 0;
+    public int index = 0;
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha0))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
-            var handle = Addressables.LoadAssetAsync<GameObject>(AddressablesInitializer.instance.assetKeys[position]);
+            var handle = Addressables.LoadAssetAsync<GameObject>(AddressablesInitializer.instance.assetKeys[index]);
             handle.Completed += AssetFinishedLoading;
         }
     }
@@ -27,11 +28,11 @@ public class GenerateObject : MonoBehaviour
             var objToSpawn = obj.Result;
             Instantiate(objToSpawn, Vector3.zero + (Vector3.right * position), Quaternion.identity);
             position++;
+            index++;
+            if (index >= AddressablesInitializer.instance.assetKeys.Count)
+            {
+                index = 0;
+            }
         }
-    }
-
-    public void AddString()
-    {
-        AddressablesInitializer.instance.assetKeys.Add(inputField.text);
     }
 }
